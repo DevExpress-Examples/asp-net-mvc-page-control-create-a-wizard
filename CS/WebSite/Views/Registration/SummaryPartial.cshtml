@@ -1,0 +1,9 @@
+@Html.DevExpress().PopupControl( settings => {
+    settings.Name = "pcSummary";
+    settings.HeaderText = "Summary";
+    settings.PopupElementID = "popupAnchor";
+    settings.ShowOnPageLoad = true;
+    settings.CloseAction = CloseAction.CloseButton;
+    
+    settings.SetContent(ViewData["AccountData"].ToString());
+}).GetHtml()
