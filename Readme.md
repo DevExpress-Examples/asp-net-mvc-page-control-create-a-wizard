@@ -1,3 +1,16 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [RegistrationController.cs](./CS/WebSite/Controllers/RegistrationController.cs)
+* [Global.asax](./CS/WebSite/Global.asax)
+* [Global.asax.cs](./CS/WebSite/Global.asax.cs)
+* [Account.cs](./CS/WebSite/Models/Account.cs)
+* [ContactPartial.cshtml](./CS/WebSite/Views/Registration/ContactPartial.cshtml)
+* [DatePartial.cshtml](./CS/WebSite/Views/Registration/DatePartial.cshtml)
+* [PersonalPartial.cshtml](./CS/WebSite/Views/Registration/PersonalPartial.cshtml)
+* [SummaryPartial.cshtml](./CS/WebSite/Views/Registration/SummaryPartial.cshtml)
+* [Wizard.cshtml](./CS/WebSite/Views/Registration/Wizard.cshtml)
+<!-- default file list end -->
 # How to organize Wizard interface within PageControl Extension
 
 
