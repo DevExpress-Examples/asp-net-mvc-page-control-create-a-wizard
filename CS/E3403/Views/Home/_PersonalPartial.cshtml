@@ -1,0 +1,43 @@
+﻿@model E3403.Models.Account
+
+<div id="PersonalContent">
+
+    @Html.DevExpress().ProgressBar(settings => {
+        settings.Name = "progressBar0";
+        settings.Theme = "iOS";
+        settings.Width = Unit.Percentage(100);
+        settings.Properties.IndicatorStyle.BorderBottom.BorderColor = (Color)ColorTranslator.FromHtml("#F87C1D");
+        settings.Properties.Minimum = 0;
+        settings.Properties.Maximum = 100;
+        settings.Position = 0;
+    }).GetHtml()
+
+    @Html.DevExpress().TextBox(editorSettings => {
+        editorSettings.Name = "FirstName";
+        editorSettings.Properties.Caption = "First Name";
+        editorSettings.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+        editorSettings.ShowModelErrors = true;
+        editorSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+    }).Bind(Model.FirstName).GetHtml()
+    <hr />
+    @Html.DevExpress().TextBox(editorSettings => {
+    editorSettings.Name = "LastName";
+    editorSettings.Properties.Caption = "Last Name";
+    editorSettings.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+    editorSettings.ShowModelErrors = true;
+    editorSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+}).Bind(Model.LastName).GetHtml()
+    <hr />
+    @Html.DevExpress().CheckBox(editorSettings => {
+        editorSettings.Name = "IAgree";
+        editorSettings.Text = "I agree";
+        editorSettings.ShowModelErrors = true;
+        editorSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+    }).Bind(Model.IAgree).GetHtml()
+    <hr />
+    @Html.DevExpress().Button(buttonSettings => {
+        buttonSettings.Name = "btnGoToContactTab;";
+        buttonSettings.Text = "Next";
+        buttonSettings.ClientSideEvents.Click = "onButtonClick";
+    }).GetHtml()
+</div>

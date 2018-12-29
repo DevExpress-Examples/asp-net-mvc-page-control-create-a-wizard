@@ -1,0 +1,47 @@
+﻿@model E3403.Models.Account
+
+<div id="ContactContent">
+    @Html.DevExpress().ProgressBar(settings => {
+    settings.Name = "progressBar2";
+    settings.Theme = "iOS";
+    settings.Width = Unit.Percentage(100);
+    settings.Properties.IndicatorStyle.BorderBottom.BorderColor = (Color)ColorTranslator.FromHtml("#F87C1D");
+    settings.Properties.Minimum = 0;
+    settings.Properties.Maximum = 100;
+    settings.Position = 0;
+}).GetHtml()
+    <br />
+    @Html.DevExpress().Button(buttonSettings => {
+         buttonSettings.Name = "repeatButton";
+         buttonSettings.Text = "Repeat";
+         buttonSettings.ClientVisible = false;
+         buttonSettings.ClientSideEvents.Click = "onRepeatButtonClick";
+         buttonSettings.UseSubmitBehavior = false;
+     }).GetHtml()
+
+    @Html.DevExpress().Panel(settings => {
+    settings.Name = "panel";
+    settings.EnableClientSideAPI = true;
+    settings.FixedPosition = DevExpress.Web.PanelFixedPosition.None;
+    settings.SettingsCollapsing.ExpandEffect = DevExpress.Web.PanelExpandEffect.Auto;
+    settings.SetContent(() => {
+        @Html.DevExpress().TextBox(editorSettings => {
+            editorSettings.Name = "Email";
+            editorSettings.Properties.Caption = "E-Mail";
+            editorSettings.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+            editorSettings.ShowModelErrors = true;
+            editorSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+        }).Bind(Model.Email).GetHtml();
+       ViewContext.Writer.Write("<hr />");
+       @Html.DevExpress().Button(buttonSettings => {
+            buttonSettings.Name = "btnFinish;";
+            buttonSettings.Text = "Finish";
+            buttonSettings.ClientSideEvents.Click = "onFinishClick";
+            buttonSettings.UseSubmitBehavior = false;
+        }).GetHtml();
+    });
+}).GetHtml()
+
+
+
+</div>
