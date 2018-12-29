@@ -1,0 +1,104 @@
+@model E3403.Models.Account
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<script>
+    var form;
+    $(function () {
+        form = $("#validateForm");
+    });
+
+    function onButtonClick(s, e) {
+        var indexTab = (pageControl.GetActiveTab()).index;
+        if (form.valid())
+            pageControl.SetActiveTab(pageControl.GetTab(indexTab + 1));
+    }
+    function onFinishClick(s, e) {
+        if (form.valid()) {
+            var str = '<b>Personal Info:</b><br />' + FirstName.GetValue() + '<br />' + LastName.GetValue() + '<hr />';
+            str += '<b>Date Info:</b><br />' + getShortDate(AnyDate.GetValue().toString()) + '<br />' + States.GetValue() + '<hr />';
+            str += '<b>Contact Info:</b><br />' + Email.GetValue();
+            popupControl.SetContentHtml(str);
+            popupControl.ShowAtElement(pageControl.GetMainElement());
+            popupControl.UpdatePositionAtElement(pageControl.GetMainElement());
+            var progressBar = ASPxClientControl.GetControlCollection().GetByName("progressBar" + pageControl.GetActiveTabIndex());
+            progressBar.SetPosition(100);
+            updateLastTabContent(true);
+        }
+    }
+    function updateLastTabContent(isVisible) {
+        panel.SetVisible(!isVisible);
+        repeatButton.SetVisible(isVisible);
+    }
+    function onActiveTabChanged(s, e) {
+        var tabIndex = s.GetActiveTabIndex();
+        var tabCount = s.GetTabCount();
+        var progressBar = ASPxClientControl.GetControlCollection().GetByName("progressBar" + tabIndex);
+        progressBar.SetPosition(100 * tabIndex / tabCount);
+    }
+
+    function onTabClick(s, e) {
+        var activeTabIndex = s.GetActiveTabIndex();
+        if (e.tab.index < activeTabIndex)
+            return;
+        e.cancel = !form.valid();
+    }
+    function onRepeatButtonClick(s, e) {
+        ASPxClientEdit.ClearEditorsInContainer(null, '', true);
+        updateLastTabContent(false);
+        pageControl.SetActiveTabIndex(0);
+        popupControl.Hide();
+    }
+    function getShortDate(longDate) {
+        var date = new Date(longDate);
+        var month = date.getMonth() + 1;
+        var str = month.toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString();
+        return str;
+    }
+
+</script>
+<style>
+    .center {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+<div class="center">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "validateForm" })) {
+
+        @Html.DevExpress().PageControl(settings => {
+       settings.Name = "pageControl";
+       settings.EnableClientSideAPI = true;
+       settings.Width = Unit.Pixel(350);
+
+       settings.Theme = "Office365";
+       settings.ClientSideEvents.ActiveTabChanged = "onActiveTabChanged";
+       settings.ClientSideEvents.TabClick = "onTabClick";
+       settings.TabPages.Add("Personal").SetContent(() => {
+           Html.RenderPartial("_PersonalPartial", Model);
+       });
+
+       settings.TabPages.Add("Date").SetContent(() => {
+           Html.RenderPartial("_DatePartial", Model);
+       });
+
+       settings.TabPages.Add("Contact").SetContent(() => {
+           Html.RenderPartial("_ContactPartial", Model);
+       });
+   }).GetHtml()
+    }
+
+</div>
+@Html.DevExpress().PopupControl( settings => {
+    settings.Name = "popupControl";
+    settings.HeaderText = "Summary";
+    settings.PopupElementID = "popupAnchor";
+    settings.ShowOnPageLoad = false;
+    settings.CloseAction = CloseAction.CloseButton;
+    settings.PopupHorizontalAlign = PopupHorizontalAlign.OutsideRight;
+    settings.PopupHorizontalOffset = 10;
+}).GetHtml()

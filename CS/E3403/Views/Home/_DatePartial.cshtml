@@ -1,0 +1,43 @@
+﻿@model E3403.Models.Account
+
+
+<div id="DateContent">
+    @Html.DevExpress().ProgressBar(settings => {
+    settings.Name = "progressBar1";
+    settings.Theme = "iOS";
+    settings.Width = Unit.Percentage(100);
+    settings.Properties.IndicatorStyle.BorderBottom.BorderColor = (Color)ColorTranslator.FromHtml("#F87C1D");
+    settings.Properties.Minimum = 0;
+    settings.Properties.Maximum = 100;
+    settings.Position = 0;
+}).GetHtml()
+
+
+    @Html.DevExpress().DateEdit(editorSettings => {
+        editorSettings.Properties.Caption = "Any Date";
+        editorSettings.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+        editorSettings.Name = "AnyDate";
+        editorSettings.ShowModelErrors = true;
+        editorSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+    }).Bind(Model.AnyDate).GetHtml()
+    <hr />
+    @Html.DevExpress().ComboBox(editorSettings => {
+        editorSettings.Name = "States";
+        editorSettings.Properties.Caption = "States";
+        editorSettings.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+        editorSettings.ShowModelErrors = true;
+        editorSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+        editorSettings.Properties.ValueType = typeof(string);
+        editorSettings.Properties.Items.Add("Alaska", "Alaska");
+        editorSettings.Properties.Items.Add("Indiana", "Indiana");
+        editorSettings.Properties.Items.Add("Kentucky", "Kentucky");
+        editorSettings.Properties.Items.Add("Minnesota", "Minnesota");
+        editorSettings.Properties.Items.Add("Nevada", "Nevada");
+    }).Bind(Model.States).GetHtml()
+    <hr />
+    @Html.DevExpress().Button(buttonSettings => {
+        buttonSettings.Name = "btnGoToMoreTab;";
+        buttonSettings.Text = "Next";
+        buttonSettings.ClientSideEvents.Click = "onButtonClick";
+    }).GetHtml()
+</div>
