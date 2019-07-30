@@ -13,7 +13,7 @@
 <!-- default file list end -->
 # How to organize Wizard interface within PageControl Extension
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/e3403)**
+**[[Run Online]](https://codecentral.devexpress.com/e3403/)**
 <!-- run online end -->
 
 
