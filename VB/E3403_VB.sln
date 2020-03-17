@@ -1,5 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "E3403_VB", "E3403_VB\E3403_VB.vbproj", "{5D1C5F56-1C36-4EC7-B178-A98E0FC3BFA9}"
 EndProject
 Global
