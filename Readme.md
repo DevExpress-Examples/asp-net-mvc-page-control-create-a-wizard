@@ -1,31 +1,21 @@
 <!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/128552735/17.2.3%2B)
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E3403)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# How to organize Wizard interface within PageControl Extension
+# Page Control for ASP.NET MVC - How to create a wizard interface
 <!-- run online -->
 **[[Run Online]](https://codecentral.devexpress.com/e3403/)**
 <!-- run online end -->
 
+This example demonstrates how to use the [PageControl](https://docs.devexpress.com/AspNetMvc/8970/components/site-navigation-and-layout/pagecontrol?p=netframework) extension to create a wizard interface.
 
-<p>This example is the ASP.NET MVC implementation of the <a href="https://www.devexpress.com/Support/Center/p/E3050">How to organize Wizard interface within ASPxPageControl</a> example. It illustrates to organize the so-called wizard interface within the MVC PageControl Extension. It allows you to specify the predefined content of the wizard steps within the TabPages and switching between them via user interface (via clicking the TabPage's header) or programmatically (via API).<br /><br /><strong>Updated: <br /><br /></strong></p>
-<p>Starting with v14.1 this example uses jQuery Unobtrusive validation. Please refer to <a href="https://documentation.devexpress.com/#AspNet/CustomDocument12060">Unobtrusive Client Validation</a> to learn more about it.</p>
+![Create a Wizard](result.png)
 
+In the example, every wizard step is a [tab page](https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.MVCxTabPage) that displays multiple fields. Fill in all fields and click the **Next** button at the bottom of the current page to proceed to the next step, or click the **Personal**, **Date**, or **Contact** tab to navigate to the corresponding step.
 
-<h3>Description</h3>
+[Unobtrusive client-side validation](https://docs.devexpress.com/AspNetMvc/12060/components/data-editors-extensions/common-concepts/validation/unobtrusive-client-validation) occurs before you proceed to the next step. Fix all validation errors to move forward.
 
-<p>The validation of TagPage's (step's) editors works in the following manner:</p>
-<p>Clicking the "Finish" button (a complete wizard step) calls the "ValidateEditors" function and validate form's editors. This function searches TabPage that contains the first invalid editor via the "GetTabIndexWithInvalidaEditor" function. If all editors in all steps are valid, the form is submitted.</p>
-<br>
-<p>In some scenarios, it is necessary to allow a user to navigate between wizard steps via clicking step's by clicking the steps' headers and sometimes - via clicking "next" / "prev" buttons (steps' headers are hidden). To specify the TabPages' header visibility, manipulate the <a href="https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.PageControlSettings.ShowTabs"><u>PageControlSettings.ShowTabs</u></a> property.</p>
-<br>
-<p>The "Show Tabs" checkbox is used for demonstration purposes only. Clicking this checkbox forces submission of the entire form. The corresponding Controller's logic analyzes the checkbox's state and clears the Model's state to avoid server-side editor / Model validation.</p>
-
-<br/>
-
-<!-- default file list -->
-*Files to look at*:
+## Files to Review
 
 * [HomeController.cs](./CS/E3403/Controllers/HomeController.cs)
 * [Global.asax](./CS/E3403/Global.asax)
@@ -35,4 +25,11 @@
 * [_ContactPartial.cshtml](./CS/E3403/Views/Home/_ContactPartial.cshtml)
 * [_DatePartial.cshtml](./CS/E3403/Views/Home/_DatePartial.cshtml)
 * [_PersonalPartial.cshtml](./CS/E3403/Views/Home/_PersonalPartial.cshtml)
-<!-- default file list end -->
+
+## Documentation
+
+- [Validation Overview](https://docs.devexpress.com/AspNetMvc/12309/components/data-editors-extensions/common-concepts/validation/validation-overview)
+
+## More Examples
+
+- [Page Control for ASP.NET Web Forms - How to create a wizard interface](https://github.com/DevExpress-Examples/asp-net-web-forms-page-control-create-a-wizard)
