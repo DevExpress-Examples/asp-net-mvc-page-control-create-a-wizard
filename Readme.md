@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # Page Control for ASP.NET MVC - How to create a wizard interface
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/e3403/)**
+**[[Run Online]](https://codecentral.devexpress.com/128552735/)**
 <!-- run online end -->
 
 This example demonstrates how to use the [PageControl](https://docs.devexpress.com/AspNetMvc/8970/components/site-navigation-and-layout/pagecontrol?p=netframework) extension to create a wizard interface.
