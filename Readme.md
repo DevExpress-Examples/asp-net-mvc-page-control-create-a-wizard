@@ -31,7 +31,7 @@
 <p>The validation of TagPage's (step's) editors works in the following manner:</p>
 <p>Clicking the "Finish" button (a complete wizard step) calls the "ValidateEditors" function and validate form's editors. This function searches TabPage that contains the first invalid editor via the "GetTabIndexWithInvalidaEditor" function. If all editors in all steps are valid, the form is submitted.</p>
 <br>
-<p>In some scenarios, it is necessary to allow a user to navigate between wizard steps via clicking step's by clicking the steps' headers and sometimes - via clicking "next" / "prev" buttons (steps' headers are hidden). To specify the TabPages' header visibility, manipulate the <a href="http://documentation.devexpress.com/#AspNet/DevExpressWebMvcPageControlSettings_ShowTabstopic"><u>PageControlSettings.ShowTabs</u></a> property.</p>
+<p>In some scenarios, it is necessary to allow a user to navigate between wizard steps via clicking step's by clicking the steps' headers and sometimes - via clicking "next" / "prev" buttons (steps' headers are hidden). To specify the TabPages' header visibility, manipulate the <a href="https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.PageControlSettings.ShowTabs"><u>PageControlSettings.ShowTabs</u></a> property.</p>
 <br>
 <p>The "Show Tabs" checkbox is used for demonstration purposes only. Clicking this checkbox forces submission of the entire form. The corresponding Controller's logic analyzes the checkbox's state and clears the Model's state to avoid server-side editor / Model validation.</p>
 
