@@ -17,9 +17,6 @@
 * [Wizard.cshtml](./CS/WebSite/Views/Registration/Wizard.cshtml)
 <!-- default file list end -->
 # How to organize Wizard interface within PageControl Extension
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/128552735/)**
-<!-- run online end -->
 
 
 <p>This example is the ASP.NET MVC implementation of the <a href="https://www.devexpress.com/Support/Center/p/E3050">How to organize Wizard interface within ASPxPageControl</a> example. It illustrates to organize the so-called wizard interface within the MVC PageControl Extension. It allows you to specify the predefined content of the wizard steps within the TabPages and switching between them via user interface (via clicking the TabPage's header) or programmatically (via API).<br /><br /><strong>Updated: <br /><br /></strong></p>
