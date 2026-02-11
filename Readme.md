@@ -33,7 +33,7 @@ In the example, every wizard step is a [tab page](https://docs.devexpress.com/As
 
 - [Page Control for ASP.NET Web Forms - How to create a wizard interface](https://github.com/DevExpress-Examples/asp-net-web-forms-page-control-create-a-wizard)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=asp-net-mvc-page-control-create-a-wizard&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=asp-net-mvc-page-control-create-a-wizard&~~~was_helpful=no)
 
